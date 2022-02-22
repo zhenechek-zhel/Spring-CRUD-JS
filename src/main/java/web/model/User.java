@@ -34,9 +34,6 @@ public class User implements UserDetails {
     private Set<Role> roles = new HashSet<>();
 
 
-    @Column(name = "phone")
-    private String phone;
-
     @Column(name = "email")
     private String email;
 
@@ -46,13 +43,6 @@ public class User implements UserDetails {
     private boolean isEnabled;
 
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public User() {
         this.isAccountNonExpired = true;
@@ -68,9 +58,8 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public User(String name, String username, String password, String phone, String email) {
+    public User(String name, String username, String password, String email) {
         this(name, username, password);
-        this.phone = phone;
         this.email = email;
     }
 
@@ -117,7 +106,6 @@ public class User implements UserDetails {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
-                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

@@ -16,7 +16,6 @@ const editId = document.getElementById('editId');
 const editName = document.getElementById('editName');
 const editUserName = document.getElementById('editUsername');
 const editEmail = document.getElementById('editEmail');
-const editPhone = document.getElementById('editPhone');
 const editPassword = document.getElementById('editPassword');
 const editRoles = document.getElementById('editRoles');
 
@@ -24,14 +23,13 @@ const delId = document.getElementById('delId');
 const delName = document.getElementById('delName');
 const delUserName = document.getElementById('delUsername');
 const delEmail = document.getElementById('delEmail');
-const delPhone = document.getElementById('delPhone');
 const delRoles = document.getElementById('delRoles');
 
 const newName = document.getElementById('newName');
 const newUserName = document.getElementById('newUserName');
 const newPassword = document.getElementById('newPassword');
 const newEmail = document.getElementById('newEmail');
-const newPhone = document.getElementById('newPhone');
+
 
 let rolesArr = [];
 
@@ -53,11 +51,10 @@ const renderUsers = (users) =>{
                 <td>${user.name}</td>
                 <td>${user.username}</td>
                 <td>${user.email}</td>
-                <td>${user.phone}</td>
                 <td>
                 ${roles}
                 </td>
-                <td><a class="btnEdit btn btn-success btn-sm">Edit</a></td>
+                <td><a class="btnEdit btn btn-info btn-sm">Edit</a></td>
                 <td><a class="btnDelete btn btn-danger btn-sm">Delete</a></td>
             </tr>
             `
@@ -118,13 +115,11 @@ on(document, 'click', '.btnDelete', e => {
     const nameForm = row.children[1].innerHTML;
     const userNameForm = row.children[2].innerHTML;
     const emailForm = row.children[3].innerHTML;
-    const phoneForm = row.children[4].innerHTML;
 
     delId.value = idForm;
     delName.value = nameForm;
     delUserName.value = userNameForm;
     delEmail.value = emailForm;
-    delPhone.value = phoneForm;
     deleteUserModal.show();
 })
 
@@ -137,14 +132,12 @@ on(document, 'click', '.btnEdit', e => {
     const nameForm = row.children[1].innerHTML;
     const userNameForm = row.children[2].innerHTML;
     const emailForm = row.children[3].innerHTML;
-    const phoneForm = row.children[4].innerHTML;
 
     editId.value = idForm;
     editName.value = nameForm;
     editUserName.value = userNameForm;
     editPassword.value = ''
     editEmail.value = emailForm;
-    editPhone.value = phoneForm;
     editRoles.options.selectedIndex = -1;
     editUserModal.show();
 
@@ -157,7 +150,6 @@ btnCreate.addEventListener('click', () =>{
     newUserName.value = '';
     newPassword.value = ''
     newEmail.value = '';
-    newPhone.value = '';
     newRoles.options.selectedIndex = -1;
 });
 
@@ -206,7 +198,6 @@ newUserForm.addEventListener('submit', (e)=>{
                     username:newUserName.value,
                     password:newPassword.value,
                     email:newEmail.value,
-                    phone:newPhone.value,
                     roles:rolesJ
                 })
             });
@@ -261,7 +252,6 @@ editUserForm.addEventListener('submit', (e)=>{
                 username:editUserName.value,
                 password:editPassword.value,
                 email:editEmail.value,
-                phone:editPhone.value,
                 roles:rolesJ
             })
         });

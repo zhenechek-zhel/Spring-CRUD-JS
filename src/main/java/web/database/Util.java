@@ -46,7 +46,6 @@ public class Util {
             for (StandartRoles role : StandartRoles.values()) {
                 roleService.saveRole(new Role(role));
             }
-            System.out.println("Добавили роли...");
         }
     }
 
@@ -56,23 +55,17 @@ public class Util {
         Role roleAdmin = roleService.getRoleByName(StandartRoles.ROLE_ADMIN.name());
 
         userService.saveUsers(
-                new User("Admin", "a", "a",
-                        "+79220005511", "aaa@mail.ru")
+                new User("Admin", "admin", "admin", "admin@mail.ru")
                         .addRolesToUser(roleUser, roleAdmin),
 
-                new User("Ivan", "ivan", "ivan",
-                        "+79220005512", "ivan@mail.ru")
+                new User("User", "user", "user", "user@mail.ru")
                         .addRoleToUser(roleUser),
 
-                new User("Maria", "maria", "maria",
-                        "+79220005513", "maria@mail.ru")
+                new User("Max", "max", "max", "max@mail.ru")
                         .addRoleToUser(roleUser),
 
-                new User("Petr", "petr", "petr",
-                        "+79220005514", "petr@mail.ru")
+                new User("Liza", "liza", "123", "liza@mail.ru")
                         .addRoleToUser(roleUser));
-
-        System.out.println("Добавили стартовых юзеров");
     }
 
     @Bean
