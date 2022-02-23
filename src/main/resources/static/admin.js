@@ -59,7 +59,7 @@ const renderUsers = (users) =>{
             </tr>
             `
     })
-    container.innerHTML = result;
+    container.innerHTML = result; // в dom записать ин-ию
 }
 
 const renderRoles = (roles) =>{
@@ -82,6 +82,8 @@ fetch(url)
     .catch(error => console.log(error));
 
 var allRoles;
+
+
 
 fetch(urlRoles)
     .then(res => res.json())

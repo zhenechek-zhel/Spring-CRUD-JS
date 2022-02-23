@@ -74,3 +74,7 @@ body {
     padding-bottom: 0;
     padding-top: 3px;
 }
+
+.btn.btn-info.btn-sm{
+    backgroung-color: rgb(9, 224, 208)
+}
